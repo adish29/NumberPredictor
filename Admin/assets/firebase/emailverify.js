@@ -15,11 +15,15 @@ function verify(){
 
     firebase.auth().onAuthStateChanged(function(user) {
          if (user) {
-            user.sendEmailVerification();
-            alert("Link to verify email sent to " + user.email)
-            logout();
+            user.sendEmailVerification().then(function(){
+                console.log("email verification sent to user");
+              }).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+          
+                console.log(errorCode, errorMessage);
+              });
         }
     });
-
-
 }
