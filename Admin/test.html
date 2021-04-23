@@ -10,23 +10,16 @@
           <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script>
-            function login(){
-            const email = document.getElementById('email').value
-            const password = document.getElementById('password').value
-             // console.log(email, password)
-              firebase.auth().signInWithEmailAndPassword(email, password)
-             .then((user) => {
-                 window.location.href='test.html'
-             })
-              .catch((error) => {
-              var errorCode = error.code;
-               var errorMessage = error.message;
-               Swal.fire({
-                 icon: 'error',
-                title: 'Oops...',
-                text: `${errorCode} ${errorMessage}`,
-                })
-            });
+            function logout(){
+             firebase.auth().signOut().then(() => {
+               // Sign-out successful.
+               window.location.href='emailverify.html'
+              }).catch((error) => {
+               var errorCode = error.code;
+              var errorMessage = error.message;
+               alert(`${errorCode} ${errorMessage}`)
+             });
+            }
         </script>
     </head>
         <body>
