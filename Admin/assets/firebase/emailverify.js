@@ -16,6 +16,8 @@ function verify(){
     firebase.auth().onAuthStateChanged(function(user) {
          if (user) {
             user.sendEmailVerification();
+            alert("Link to verify email sent to " + user.email)
+            logout();
         }
     });
 
