@@ -4,11 +4,24 @@
         <title>
             Email Verification Testing
         </title>
+        
         <!-- Firebase Libraries -->
           <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
           <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
           <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script>
+            var firebaseConfig = {
+            apiKey: "AIzaSyBFwJkHQHb4IuU0Xuloba3d9FSZayB1eqw",
+             authDomain: "numberpredictor-prd.firebaseapp.com",
+             databaseURL: "https://numberpredictor-prd-default-rtdb.firebaseio.com",
+             projectId: "numberpredictor-prd",
+             storageBucket: "numberpredictor-prd.appspot.com",
+            messagingSenderId: "333354525993",
+            appId: "1:333354525993:web:b8b713f2e609d9c545c338"
+            };
+            firebase.initializeApp(firebaseConfig);
+        </script>
         <script>
             function logout(){
              firebase.auth().signOut().then(() => {
@@ -24,13 +37,13 @@
     </head>
         <body>
             <h1>
-                StoreOwner Admin Login
+                StoreOwner Admin Page
             </h1>
-            <form>
+            <!-- <form>
                 <input type="text" id="email" placeholder="Enter Email Address">
                 <input type="password" id="password" placeholder="Enter Password">
-            </form>
-            <button onclick="login()">Login</button>
+            </form> -->
+            <button onclick="logout()">Logout</button>
         </body>
     
 </html>
