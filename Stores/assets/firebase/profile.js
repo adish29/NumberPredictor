@@ -1,8 +1,13 @@
 firebase.auth().onAuthStateChanged(function (user) {
-  if (user) {
-    var userId = user.uid;
-    var email = user.email;
-    readUserData(userId, email);
+  if(user){
+    if (user.emailVerified) {
+      var userId = user.uid;
+      var email = user.email;
+      readUserData(userId, email);
+    }
+    else{
+      window.location.href = './email-verify.html'  
+    }
   }
 });
 

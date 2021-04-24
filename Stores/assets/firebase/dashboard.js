@@ -1,9 +1,14 @@
 // Call data retrieval functions only after firebase is loaded
 firebase.auth().onAuthStateChanged((user) => {
     if(user){
-        updateChart()
-        screens()
-        updateBasicInfo()
+     if(user.emailVerified){
+          updateChart()
+          screens()
+          updateBasicInfo()
+     }
+     else{
+        window.location.href = './email-verify.html'  
+      }
     }
 })
 

@@ -1,10 +1,15 @@
 // Call data retrieval functions only after firebase is loaded
 firebase.auth().onAuthStateChanged((user) => {
-    if(user){
+  if(user){
+    if(user.emailVerified){
         showSalesReport()
         updateCounts()
         updateBasicInfo()
     }
+    else{
+      window.location.href = './email-verify.html'  
+    }
+  }
 })
 
 /**

@@ -25,6 +25,15 @@ function signUp() {
     secondaryApp.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
         var user = userCredential.user;
+        user.sendEmailVerification().then(function(){
+            console.log("email verification sent to user");
+          }).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+      
+            console.log(errorCode, errorMessage);
+          });
         var UID = user.uid;
         console.log(UID)
         //check whether store owner or agent account is created
